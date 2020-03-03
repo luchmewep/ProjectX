@@ -1,6 +1,6 @@
 <!--Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-    <a class="navbar-brand" href="{{ route('home') }}" style="padding: 5px; border: dashed 2px;">
+  <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
+    <a class="navbar-brand" href="{{ route('home') }}" style="padding: 5px; border: solid 2px;">
       <i class="fas fa-calculator-alt"></i> {{ config('app.name') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
