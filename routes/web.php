@@ -34,6 +34,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('p/{user}', 'ProfilesController@show')->name('profiles.show');
 
 //React Experiment
-Route::post('formSubmit','PostController@formSubmit');
+// Route::post('formSubmit','PostController@formSubmit');
