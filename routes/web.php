@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,6 +37,14 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('p/{user}', 'ProfilesController@show')->name('profiles.show');
+
+Route::get('upload', function(){
+	return view('upload');
+});
+
+Route::post('upload/create', function(Request $req){
+	return dd($req->file("file")->store("", "google"));
+})->name('photo.create');
 
 //React Experiment
 // Route::post('formSubmit','PostController@formSubmit');

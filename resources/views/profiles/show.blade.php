@@ -40,7 +40,7 @@
             <h3 class="my-3 font-weight-bold">
               <strong>{{ $user->name }}</strong>
             </h3>
-            <h6 class="font-weight-bold teal-text mb-4">{{ $user->profile->profession . ' | ' . $user->profile->workplace }} | <a href="http://{{ $user->profile->url }}">{{$user->profile->url }}</a></h6>
+            <h6 class="font-weight-bold teal-text mb-4">{{ $user->profile->profession ?? '' . ' | ' . $user->profile->workplace ?? '' }} | <a href="http://{{ $user->profile->url ?? ''}}">{{$user->profile->url ?? ''}}</a></h6>
 
             <!--Facebook-->
             <a class="p-2 m-2 fa-lg fb-ic">

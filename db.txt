@@ -7,3 +7,12 @@ Password: MZjJ4Q3OIs
 Server: remotemysql.com
 
 Port: 3306
+
+ array:6 [▼
+  "access_token" => "ya29.a0Adw1xeXsntKgHYAXSDY1Mzk-9P1MXf-FxwZlPMG986EsBSvHgKl6R64ze6XJyMeDn4tiFfDfKxuvMx4d8nD8xeRiYJIvDkkcJs5T3iR7Pahzr3bQaVKz3F2Bezjc7BUWi2lBGFW3SlSCdK_RhK1CA_9P0 ▶"
+  "expires_in" => 3599
+  "refresh_token" => "1//036VFinTZn51GCgYIARAAGAMSNwF-L9Irlkl2abjvipNbDGWFpcp5HrAbNgmg6P6ZDAKQETtc9Pd1STvxoxzpzrn_PZwQacjr6BI"
+  "scope" => "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis. ▶"
+  "token_type" => "Bearer"
+  "created" => 1583387690
+]
