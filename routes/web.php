@@ -48,9 +48,8 @@ Route::post('upload/create', function(Request $req){
 
 //Socialite Experiment
 Route::get('login/{provider}', 'SocialController@redirect');
-Route::get('login/{provider}/callback','SocialController@Callback');
-
 Route::get('login/twitter/callback', 'SocialController@TwitterCallback');
+Route::get('login/{provider}/callback','SocialController@Callback');
 
 //React Experiment
 // Route::post('formSubmit','PostController@formSubmit');
