@@ -18,9 +18,9 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +32,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -46,9 +46,9 @@
                                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username">
 
                                 @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -60,9 +60,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -83,9 +83,17 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                               <a href="{{ url('/login/facebook') }}" class="btn btn-facebook"> Facebook</a>
+                               <a href="{{ url('/login/twitter') }}" class="btn btn-twitter"> Twitter</a>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
 @endsection

@@ -18,9 +18,9 @@
                                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                 @error('username')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +32,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -58,16 +58,24 @@
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
                                 @endif
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                               <a href="{{ url('/login/facebook') }}" class="btn btn-facebook"> Facebook</a>
+                               <a href="{{ url('/login/twitter') }}" class="btn btn-twitter"> Twitter</a>
+                           </div>
+                       </div>
+                   </form>
+               </div>
+           </div>
+       </div>
+   </div>
 </div>
 @endsection

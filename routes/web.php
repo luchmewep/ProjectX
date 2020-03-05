@@ -46,5 +46,11 @@ Route::post('upload/create', function(Request $req){
 	return dd($req->file("file")->store("", "google"));
 })->name('photo.create');
 
+//Socialite Experiment
+Route::get('login/{provider}', 'SocialController@redirect');
+Route::get('login/{provider}/callback','SocialController@Callback');
+
+Route::get('login/twitter/callback', 'SocialController@TwitterCallback');
+
 //React Experiment
 // Route::post('formSubmit','PostController@formSubmit');

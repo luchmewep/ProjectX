@@ -6,7 +6,7 @@
         @csrf
       <div class="form-row">    
         <div class="form-group col-md-6">
-          <label for="file">Upload File</label>
+          <label for="file       ">Upload File</label>
           <input type="file" class="form-control" id="file" name="file">
         </div>
         <div class="form-group col-md-6">

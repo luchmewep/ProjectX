@@ -75,7 +75,7 @@
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
-        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-1.jpg" class="rounded-circle z-depth-0"
+        <img src="{{ auth()->user()->image }}" class="rounded-circle z-depth-0"
         alt="avatar image"><span class="ml-1">{{ auth()->user()->name }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
