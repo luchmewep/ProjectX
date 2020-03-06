@@ -43,8 +43,15 @@ Route::get('upload', function(){
 });
 
 Route::post('upload/create', function(Request $req){
-	return dd($req->file("file")->store("", "google"));
-})->name('photo.create');
+	$file = $req->file("file"); //get the file from POST request
+	$adapter = Storage::disk('google')->getAdapter(); //prepare Google Drive connection
+	$filename = $file->store("", "google"); //save the file to Google Drive
+	//Search for the file on Google Drive using the filename
+	$path = collect($adapter->listContents())->where('name', '=', $filename)->first()['path'];
+	//If found, get the URL then save to database
+	$url = $adapter->getUrl($path); 
+	dd($url);
+})->name('photos.create');
 
 //Socialite Experiment
 Route::get('login/{provider}', 'SocialController@redirect');
