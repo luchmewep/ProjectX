@@ -2,98 +2,101 @@
 
 @section('content')
 <div class="container">
-	<div class="row">
-		<div class="col-12">
+	<div class="row my-2 justify-content-center">
+		<h3 class="font-weight-bold">Linear Programming</h3>
+	</div>
+	<div class="row justify-content-center">
+		<div class="col-8 my-2">
 			<div class="card">
-
-				<!-- Card image -->
-			{{-- <div class="view overlay">
-				<img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"
-				alt="Card image cap">
-				<a href="#!">
-					<div class="mask rgba-white-slight"></div>
-				</a>
-			</div> --}}
-
-			<!-- Card content -->
-			<div class="card-body">
-
-				<!-- Title -->
-				<h4 class="card-title text-center">Simplex Algorithm</h4>
-				<!-- Text -->
-				<p class="card-text"></p>
-				<div class="row">
-					<div class="col-3">
-						<label for="vars"># of Variables</label>
-						<div class="def-number-input number-input safari_only">
-							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-							<input id="vars" class="quantity" min="0" name="quantity" value="1" type="number">
-							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+				<div class="card-body">
+					<div class="card-title"><h4>Create Input Table</h4></div>
+					<form>
+						<div class="form-row">
+							<!-- No. of Variables -->
+							<div class="col">
+								<div class="md-form md-outline">
+									<input type="number" id="vars" class="form-control mr-sm-2 text-center" min="1">
+									<label for="vars">Variable Count</label>
+								</div>
+							</div>
+							<!-- No. of Constraints -->
+							<div class="col">
+								<div class="md-form md-outline">
+									<input type="number" id="cons" class="form-control mr-sm-2 text-center" min="1">
+									<label for="cons">Constraint Count</label>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-3">
-						<label for="cons"># of Constraints</label>
-						<div class="def-number-input number-input safari_only">
-							<button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-							<input id="cons" class="quantity" min="0" name="quantity" value="1" type="number">
-							<button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+						<!-- Submit -->
+						<div class="form-row">
+							<button class="btn btn-info">Next</button>
 						</div>
-					</div>
+					</form>
 				</div>
-				<div class="row">
-					<div class="col-12">
-						<table class="table table-sm">
+			</div>
+		</div>
+		<div class="col-8">
+			<!-- Editable table -->
+			<div class="card">
+				<div class="card-body">
+					<div class="card-title"><h4>Input Data</h4></div>
+					<div id="table" class="table-editable">
+						<table class="table table-bordered table-responsive-md table-striped text-center">
 							<thead>
 								<tr>
-									<th scope="col">#</th>
-									<th scope="col">First</th>
-									<th scope="col">Last</th>
-									<th scope="col">Handle</th>
+									<th class="text-center">Person Name</th>
+									<th class="text-center">Age</th>
+									<th class="text-center">Company Name</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<th scope="row">1</th>
-									<td>Mark</td>
-									<td>Otto</td>
-									<td>@mdo</td>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
 								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Jacob</td>
-									<td>Thornton</td>
-									<td>@fat</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td colspan="2">Larry the Bird</td>
-									<td>@twitter</td>
-								</tr>
+								<!-- This is our clonable table line -->
 							</tbody>
 						</table>
-
+					</div>
+					<!-- Submit -->
+					<div class="form-row">
+						<button class="btn btn-info">Next</button>
 					</div>
 				</div>
-				<!-- Button -->
-				<a href="#" class="btn btn-primary">Button</a>
-
 			</div>
-
-			<!-- Card footer -->
-			<div class="rounded-bottom mdb-color lighten-3 text-center pt-3">
-				<ul class="list-unstyled list-inline font-small">
-					<li class="list-inline-item pr-2 white-text"><i class="far fa-clock pr-1"></i>05/10/2015</li>
-					<li class="list-inline-item pr-2"><a href="#" class="white-text"><i
-						class="far fa-comments pr-1"></i>12</a></li>
-						<li class="list-inline-item pr-2"><a href="#" class="white-text"><i class="fab fa-facebook-f pr-1">
-						</i>21</a></li>
-						<li class="list-inline-item"><a href="#" class="white-text"><i class="fab fa-twitter pr-1"> </i>5</a></li>
-					</ul>
+			<!-- Editable table -->
+		</div>
+		<div class="col-8 my-2">
+			<div class="card">
+				<div class="card-body text-center">
+					<div class="card-title text-left"><h4>Choose Method</h4></div>
+					<button type="button" class="btn btn-primary btn-rounded">Primary</button>
+					<button type="button" class="btn btn-default btn-rounded">Default</button>
+					<button type="button" class="btn btn-secondary btn-rounded">Secondary</button>
+					<button type="button" class="btn btn-success btn-rounded">Success</button>
+					<button type="button" class="btn btn-info btn-rounded">Info</button>
+					<button type="button" class="btn btn-warning btn-rounded">Warning</button>
+					<button type="button" class="btn btn-danger btn-rounded">Danger</button>
 				</div>
-
 			</div>
-			<!-- Card -->
 		</div>
 	</div>
+
+</form>
+</div>
+</div>
 </div>
 @endsection
