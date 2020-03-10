@@ -9,27 +9,52 @@
 		<div class="col-8 my-2">
 			<div class="card">
 				<div class="card-body">
-					<div class="card-title"><h4>Create Input Table</h4></div>
-					<form>
+					<div class="card-title"><h4>Problem Description</h4></div>
+					<form id="createTable">
 						<div class="form-row">
+							<!-- Problem Title -->
+							<div class="col-12">
+								<div class="md-form md-outline">
+									<input type="text" id="title" class="form-control mr-sm-2 text-center" min="1">
+									<label for="title">Title</label>
+								</div>
+							</div>
 							<!-- No. of Variables -->
-							<div class="col">
+							<div class="col-md-6">
 								<div class="md-form md-outline">
 									<input type="number" id="vars" class="form-control mr-sm-2 text-center" min="1">
-									<label for="vars">Variable Count</label>
+									<label for="vars">Variables</label>
 								</div>
 							</div>
 							<!-- No. of Constraints -->
-							<div class="col">
+							<div class="col-md-6">
 								<div class="md-form md-outline">
 									<input type="number" id="cons" class="form-control mr-sm-2 text-center" min="1">
-									<label for="cons">Constraint Count</label>
+									<label for="cons">Constraints</label>
 								</div>
+							</div>
+							{{-- Problem Type --}}
+							<div class="col-md-6 select-outline">
+								<select id="type" class="mdb-select md-form md-outline colorful-select dropdown-primary">
+									<option value="1">Maximize</option>
+									<option value="2">Minimize</option>
+								</select>
+								<label>Type</label>
+							</div>
+							{{-- Method --}}
+							<div class="col-md-6 select-outline">
+								<select id="type" class="mdb-select md-form md-outline colorful-select dropdown-primary">
+									<option value="1">Simplex</option>
+									<option value="2">Two-Phase</option>
+									<option value="3">Big M</option>
+									<option value="4">Dual Simplex</option>
+								</select>
+								<label>Method</label>
 							</div>
 						</div>
 						<!-- Submit -->
 						<div class="form-row">
-							<button class="btn btn-info">Next</button>
+							<button type="submit" class="btn btn-info">Create</button>
 						</div>
 					</form>
 				</div>
@@ -41,7 +66,7 @@
 				<div class="card-body">
 					<div class="card-title"><h4>Input Data</h4></div>
 					<div id="table" class="table-editable">
-						<table class="table table-bordered table-responsive-md table-striped text-center">
+						<table id="tableau" class="table table-bordered table-responsive-md table-striped text-center" width="100%">
 							<thead>
 								<tr>
 									<th class="text-center">Person Name</th>
@@ -50,6 +75,114 @@
 								</tr>
 							</thead>
 							<tbody>
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
+								<tr>
+									<td class="pt-3-half" contenteditable="true">Madrid</td>
+									<td class="pt-3-half">
+										<span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
+										<span class="table-down">
+											<a href="#!" class="indigo-text">
+												<i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i>
+											</a>
+										</span>
+									</td>
+									<td>
+										<span class="table-remove">
+											<button type="button"
+											class="btn btn-danger btn-rounded btn-sm my-0">Remove</button>
+										</span>
+									</td>
+								</tr>
+								<!-- This is our clonable table line -->
 								<tr>
 									<td class="pt-3-half" contenteditable="true">Madrid</td>
 									<td class="pt-3-half">
@@ -78,20 +211,6 @@
 				</div>
 			</div>
 			<!-- Editable table -->
-		</div>
-		<div class="col-8 my-2">
-			<div class="card">
-				<div class="card-body text-center">
-					<div class="card-title text-left"><h4>Choose Method</h4></div>
-					<button type="button" class="btn btn-primary btn-rounded">Primary</button>
-					<button type="button" class="btn btn-default btn-rounded">Default</button>
-					<button type="button" class="btn btn-secondary btn-rounded">Secondary</button>
-					<button type="button" class="btn btn-success btn-rounded">Success</button>
-					<button type="button" class="btn btn-info btn-rounded">Info</button>
-					<button type="button" class="btn btn-warning btn-rounded">Warning</button>
-					<button type="button" class="btn btn-danger btn-rounded">Danger</button>
-				</div>
-			</div>
 		</div>
 	</div>
 

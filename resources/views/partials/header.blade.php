@@ -1,7 +1,7 @@
 <!--Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark primary-color fixed-top">
     <a class="navbar-brand" href="{{ route('home') }}" style="padding: 5px; border: solid 2px;">
-      <i class="fas fa-calculator-alt"></i> {{ config('app.name') }}
+      <i class="fas fa-calculator-alt fa-fw fa-spin"></i><span class="ml-2">{{ config('app.name') }}</span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,24 +15,12 @@
          {{--  <span class="sr-only">(current)</span> --}}
         </a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{ route('pricing') }}">Pricing</a>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
       </li>
-      
-      {{-- <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="dropdown1" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">Dropdown
-      </a>
-      <div class="dropdown-menu dropdown-secondary" aria-labelledby="dropdown1">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
-      </div>
-      </li> --}}
   </ul>
   <ul class="navbar-nav ml-auto nav-flex-icons">
     @guest
@@ -75,8 +63,14 @@
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
+        @if(auth()->user()->image == null)
+        <img src="/storage/images/user.png" class="rounded-circle z-depth-0"
+        alt="avatar image">
+        @else
         <img src="{{ auth()->user()->image }}" class="rounded-circle z-depth-0"
-        alt="avatar image"><span class="ml-1">{{ auth()->user()->name }}</span>
+        alt="avatar image">
+        @endif
+        <span class="ml-1">{{ auth()->user()->name }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
         aria-labelledby="accountDropdown">
