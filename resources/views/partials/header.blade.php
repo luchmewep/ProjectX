@@ -64,8 +64,9 @@
         <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
         @if(auth()->user()->image == null)
-        <img src="/storage/images/user.png" class="rounded-circle z-depth-0"
-        alt="avatar image">
+        <i class="fas fa-user-circle fa-2x"></i>
+        {{-- <img src="/storage/images/user.png" class="rounded-circle z-depth-0"
+        alt="avatar image"> --}}
         @else
         <img src="{{ auth()->user()->image }}" class="rounded-circle z-depth-0"
         alt="avatar image">
@@ -74,7 +75,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
         aria-labelledby="accountDropdown">
-          <a class="dropdown-item" href="{{ route('profile') }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
+          <a class="dropdown-item" href="{{ route('profiles.show', ['user' => auth()->user()->username]) }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}"

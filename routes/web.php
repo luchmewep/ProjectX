@@ -36,7 +36,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('p/{user}', 'ProfilesController@show')->name('profiles.show');
+// Route::prefix('p')->name('profiles.')->group(function(){
+// 	Route::get('{user}', 'ProfilesController@show')->name('show');
+// });
+Route::resource([
+	'profiles' => 'ProfilesController'
+]);
 
 Route::get('upload', function(){
 	return view('upload');

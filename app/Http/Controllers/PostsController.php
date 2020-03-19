@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class ProfilesController extends Controller
+class PostsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,9 +43,9 @@ class ProfilesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
-        return view('profiles.show', compact('user'));
+        //
     }
 
     /**

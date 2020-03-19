@@ -37,6 +37,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    // public function getRouteKeyName()
+    // {
+    //     return 'username';
+    // }
+
+    /**
+     * Retrieve the model for a bound value.
+     *
+     * @param  mixed  $value
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
+    public function resolveRouteBinding($user)
+    {
+        return $this->where('username', $user)->first() ?? $this->find($user) ?? abort(404);
+    }
+
     public function profile(){
         return $this->hasOne(Profile::class);
     }
