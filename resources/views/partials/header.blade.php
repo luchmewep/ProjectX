@@ -59,7 +59,7 @@
           <a class="dropdown-item" href="{{ route('history') }}">{{ __('Show All Mails') }}</a>
         </div>
       </li>
-      
+
       <li class="nav-item avatar dropdown">
         <a class="nav-link dropdown-toggle" id="accountDropdown" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false">
@@ -75,7 +75,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
         aria-labelledby="accountDropdown">
-          <a class="dropdown-item" href="{{ route('profiles.show', ['user' => auth()->user()->username]) }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
+          <a class="dropdown-item" href="{{ route('profile.show', ['user' => auth()->user()->username]) }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}"
