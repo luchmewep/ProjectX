@@ -1,8 +1,14 @@
-$(document).ready(function($) {
+$(function() {
 	var numCons, numVars;
-	function createTable(){
-		numCons = $('cons').value();
-	}
+	$('#createTable').submit(function(e){
+        e.preventDefault();
+        var data = $('#createTable').serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+        console.log(data);
+        console.log(data.title);
+    });
 
 	// Material Select Initialization
 	$('.mdb-select').materialSelect();

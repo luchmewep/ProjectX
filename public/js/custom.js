@@ -93,13 +93,17 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function ($) {
+$(function () {
   var numCons, numVars;
-
-  function createTable() {
-    numCons = $('cons').value();
-  } // Material Select Initialization
-
+  $('#createTable').submit(function (e) {
+    e.preventDefault();
+    var data = $('#createTable').serializeArray().reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+    console.log(data);
+    console.log(data.title);
+  }); // Material Select Initialization
 
   $('.mdb-select').materialSelect();
   $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
@@ -122,7 +126,7 @@ $(document).ready(function ($) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\ProjectX\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\ProjectX\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })
