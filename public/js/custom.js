@@ -95,9 +95,12 @@
 
 $(function () {
   var numCons, numVars;
-<<<<<<< HEAD
   $('#linear').submit(function (e) {
     e.preventDefault();
+    var data = $('#createTable').serializeArray().reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
   });
   $('#vars, #cons').change(function (e) {
     numVars = parseInt($('#vars').val());
@@ -127,17 +130,6 @@ $(function () {
       tbodyRows.find('tr:last').remove();
     } // If numVars is increased
 
-=======
-  $('#createTable').submit(function (e) {
-    e.preventDefault();
-    var data = $('#createTable').serializeArray().reduce(function (obj, item) {
-      obj[item.name] = item.value;
-      return obj;
-    }, {});
-    console.log(data);
-    console.log(data.title);
-  }); // Material Select Initialization
->>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
 
     for (var _i2 = theadCols.children().length; _i2 < numVars; _i2++) {
       theadCols.append($('<th/>').text('var' + (_i2 + 1))); // tbodyRows.children().append($('<td/>'));

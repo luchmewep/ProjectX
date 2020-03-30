@@ -50,6 +50,7 @@ $(function() {
 		}
 	});
 	$('#vars, #cons').val(2).change();
+
 	// Material Select Initialization
 	$('.mdb-select').materialSelect();
 	$('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
