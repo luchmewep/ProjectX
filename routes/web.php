@@ -36,7 +36,10 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('p/{user}', 'ProfilesController@show')->name('profiles.show');
+// Route::prefix('p')->name('profiles.')->group(function(){
+// 	Route::get('{user}', 'ProfilesController@show')->name('show');
+// });
+Route::resource('profiles', 'ProfilesController');
 
 Route::get('upload', function(){
 	return view('upload');
@@ -49,7 +52,7 @@ Route::post('upload/create', function(Request $req){
 	//Search for the file on Google Drive using the filename
 	$path = collect($adapter->listContents())->where('name', '=', $filename)->first()['path'];
 	//If found, get the URL then save to database
-	$url = $adapter->getUrl($path); 
+	$url = $adapter->getUrl($path);
 	dd($url);
 })->name('photos.create');
 

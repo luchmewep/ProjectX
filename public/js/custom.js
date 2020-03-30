@@ -95,11 +95,58 @@
 
 $(document).ready(function ($) {
   var numCons, numVars;
+  $('#linear').submit(function (e) {
+    e.preventDefault();
+  });
+  $('#vars, #cons').change(function (e) {
+    numVars = parseInt($('#vars').val());
+    numCons = parseInt($('#cons').val());
+    theadCols = $('table thead tr');
+    tbodyRows = $('table tbody'); //If numCons is increased
 
-  function createTable() {
-    numCons = $('cons').value();
-  } // Material Select Initialization
+    for (var i = tbodyRows.children().length; i < numCons; i++) {
+      var tr = tbodyRows.find('tr:last');
 
+      if (tr.html() == null) {
+        tr = $('<tr/>');
+        td = $('<td/>').append($('<input type="number" class="form-control">'));
+
+        for (var j = 0; j < numVars; j++) {
+          tr.append(td.clone());
+        }
+      } else {
+        tr = tr.clone();
+      }
+
+      tbodyRows.append(tr.clone());
+    } //If numCons is decreased
+
+
+    for (var _i = tbodyRows.children().length - numCons; _i > 0; _i--) {
+      tbodyRows.find('tr:last').remove();
+    } // If numVars is increased
+
+
+    for (var _i2 = theadCols.children().length; _i2 < numVars; _i2++) {
+      theadCols.append($('<th/>').text('var' + (_i2 + 1))); // tbodyRows.children().append($('<td/>'));
+      // $.each(tbodyRows.children(), function(index, row) {
+      // 	 console.log(row.find('td:last').clone());
+      // });
+
+      var rows = tbodyRows.children();
+
+      for (var _i3 = 0; _i3 < rows.length; _i3++) {
+        console.log(rows[_i3].children()); // rows[i].append(rows[i].children('td:last').clone());
+      }
+    } //If numVars is decreased
+
+
+    for (var _i4 = theadCols.children().length - numVars; _i4 > 0; _i4--) {
+      theadCols.find('th:last').remove();
+      tbodyRows.children().find('td:last').remove();
+    }
+  });
+  $('#vars, #cons').val(2).change(); // Material Select Initialization
 
   $('.mdb-select').materialSelect();
   $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
