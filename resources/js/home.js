@@ -1,8 +1,11 @@
 $(function() {
 	var numCons, numVars;
-<<<<<<< HEAD
 	$('#linear').submit(function(e) {
-		e.preventDefault();
+        e.preventDefault();
+        var data = $('#createTable').serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
 	});
 	$('#vars, #cons').change(function(e) {
 		numVars = parseInt($('#vars').val());
@@ -47,18 +50,6 @@ $(function() {
 		}
 	});
 	$('#vars, #cons').val(2).change();
-=======
-	$('#createTable').submit(function(e){
-        e.preventDefault();
-        var data = $('#createTable').serializeArray().reduce(function(obj, item) {
-            obj[item.name] = item.value;
-            return obj;
-        }, {});
-        console.log(data);
-        console.log(data.title);
-    });
->>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
-
 	// Material Select Initialization
 	$('.mdb-select').materialSelect();
 	$('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
