@@ -5,7 +5,7 @@
 </head>
 <body>
 	@include('partials.header')
-	<main class="pt-5 mt-5 pb-5 mb-5 py-4">
+	<main class="pt-5 mt-5 pb-5 mb-5">
 		@yield('content')
 	</main>
 	@include('partials.footer')

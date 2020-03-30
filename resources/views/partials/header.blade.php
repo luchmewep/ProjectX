@@ -75,11 +75,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
         aria-labelledby="accountDropdown">
-<<<<<<< HEAD
-          <a class="dropdown-item" href="{{ route('profiles.show', ['user' => auth()->user()->username]) }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
-=======
           <a class="dropdown-item" href="{{ route('profile.show', ['user' => auth()->user()->username]) }}"><i class="fas fa-user-circle mr-2"></i>Profile</a>
->>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
           <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Settings</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}"

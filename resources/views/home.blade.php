@@ -2,11 +2,11 @@
 
 @section('content')
 <div class="container">
-	<div class="row my-2 justify-content-center">
+	<div class="row justify-content-center">
 		<h3 class="font-weight-bold">Linear Programming</h3>
 	</div>
 	<form class="row justify-content-center" id="linear">
-		<div class="col-8 my-2">
+		<div class="col-md-8">
 			<div class="card">
 				<div class="card-body">
 					<div class="card-title"><h4>About the Problem</h4></div>
@@ -29,10 +29,10 @@
 						{{-- Method --}}
 						<div class="col-md-6 select-outline">
 							<select id="type" class="mdb-select md-form md-outline colorful-select dropdown-primary">
-								<option value="1">Simplex</option>
-								<option value="2">Two-Phase</option>
-								<option value="3">Big M</option>
-								<option value="4">Dual Simplex</option>
+								<option value="Simplex">Simplex</option>
+								<option value="Two-Phase">Two-Phase</option>
+								<option value="Big M">Big M</option>
+								<option value="Dual Simplex">Dual Simplex</option>
 							</select>
 							<label>Method</label>
 						</div>
@@ -40,9 +40,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-8">
-			<!-- Editable table -->
-			<div id="card_input" class="card">
+		<div class="col-md-8">
+			<div class="card">
 				<div class="card-body">
 					<div class="card-title"><h4>Data Input</h4></div>
 					<div class="form-row">
@@ -62,7 +61,7 @@
 						</div>
 					</div>
 					{{-- Table --}}
-					<div class="table-responsive table-bordered">
+					<div class="table-responsive-xl table-bordered">
 						<table class="table table-hover">
 							<thead>
 								<tr class="bg-success">
@@ -99,7 +98,6 @@
 					</div>
 				</div>
 			</div>
-			<!-- Editable table -->
 		</div>
 	</form>
 </div>
