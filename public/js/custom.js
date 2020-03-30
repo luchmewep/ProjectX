@@ -93,8 +93,9 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function ($) {
+$(function () {
   var numCons, numVars;
+<<<<<<< HEAD
   $('#linear').submit(function (e) {
     e.preventDefault();
   });
@@ -126,6 +127,17 @@ $(document).ready(function ($) {
       tbodyRows.find('tr:last').remove();
     } // If numVars is increased
 
+=======
+  $('#createTable').submit(function (e) {
+    e.preventDefault();
+    var data = $('#createTable').serializeArray().reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+    console.log(data);
+    console.log(data.title);
+  }); // Material Select Initialization
+>>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
 
     for (var _i2 = theadCols.children().length; _i2 < numVars; _i2++) {
       theadCols.append($('<th/>').text('var' + (_i2 + 1))); // tbodyRows.children().append($('<td/>'));
@@ -169,7 +181,7 @@ $(document).ready(function ($) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\ProjectX\resources\js\home.js */"./resources/js/home.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\ProjectX\resources\js\home.js */"./resources/js/home.js");
 
 
 /***/ })

@@ -1,5 +1,6 @@
-$(document).ready(function($) {
+$(function() {
 	var numCons, numVars;
+<<<<<<< HEAD
 	$('#linear').submit(function(e) {
 		e.preventDefault();
 	});
@@ -46,6 +47,17 @@ $(document).ready(function($) {
 		}
 	});
 	$('#vars, #cons').val(2).change();
+=======
+	$('#createTable').submit(function(e){
+        e.preventDefault();
+        var data = $('#createTable').serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+        console.log(data);
+        console.log(data.title);
+    });
+>>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
 
 	// Material Select Initialization
 	$('.mdb-select').materialSelect();

@@ -39,7 +39,12 @@ Route::get('/', 'HomeController@index')->name('home');
 // Route::prefix('p')->name('profiles.')->group(function(){
 // 	Route::get('{user}', 'ProfilesController@show')->name('show');
 // });
+<<<<<<< HEAD
 Route::resource('profiles', 'ProfilesController');
+=======
+
+Route::resource('profile', 'ProfilesController')->except(['index', 'destroy']);
+>>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
 
 Route::get('upload', function(){
 	return view('upload');
@@ -47,12 +52,16 @@ Route::get('upload', function(){
 
 Route::post('upload/create', function(Request $req){
 	$file = $req->file("file"); //get the file from POST request
-	$adapter = Storage::disk('google')->getAdapter(); //prepare Google Drive connection
-	$filename = $file->store("", "google"); //save the file to Google Drive
+	$adapter = Storage::cloud(); //prepare Google Drive connection
+	$filename = $file->store(); //save the file to Google Drive
 	//Search for the file on Google Drive using the filename
-	$path = collect($adapter->listContents())->where('name', '=', $filename)->first()['path'];
+	$path = collect($adapter->listContents())->where('name', $filename)->first()['path'];
 	//If found, get the URL then save to database
+<<<<<<< HEAD
 	$url = $adapter->getUrl($path);
+=======
+	$url = $adapter->url($path);
+>>>>>>> d17573bd8c2e0860f86a725ca57f6bbfe55ade10
 	dd($url);
 })->name('photos.create');
 
