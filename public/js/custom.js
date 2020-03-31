@@ -106,10 +106,12 @@ $(function () {
     numCons = parseInt($('#cons').val());
     theadCols = $('table thead tr');
     tbodyRows = $('table tbody');
-    numInput = $('<input type="number" class="form-control">'); // If numVars is increased
+    numInput = $('<input type="number" class="form-control text-center">'); // If numVars is increased
 
     for (var i = theadCols.children().length; i < numVars; i++) {
-      theadCols.append($('<th/>').text('var' + (i + 1)));
+      // thead
+      theadCols.append($('<th/>').addClass('text-center').text('var' + (i + 1))); // tbody
+
       tdLast = tbodyRows.children().find('td:last');
 
       if (tdLast.length == 0) {
@@ -127,7 +129,7 @@ $(function () {
 
       if (tr.length == 0) {
         tr = $('<tr/>');
-        td = $('<td/>').append($('<input type="number" class="form-control">'));
+        td = $('<td/>').append(numInput.clone());
 
         for (var j = 0; j < theadCols.children().length; j++) {
           tr.append(td.clone());
@@ -146,21 +148,19 @@ $(function () {
     } //If numCons is decreased
 
 
-    for (var _i3 = tbodyRows.children().length - numCons; _i3 > 0; _i3--) {
+    for (var _i3 = tbodyRows.children().length; _i3 > numCons; _i3--) {
       tbodyRows.find('tr:last').remove();
     }
   });
-  $('#vars, #cons').val(2).change(); // Material Select Initialization
+  $('#vars, #cons').val(11).change(); // Material Select Initialization
 
   $('.mdb-select').materialSelect();
   $('.select-wrapper.md-form.md-outline input.select-dropdown').bind('focus blur', function () {
     $(this).closest('.select-outline').find('label').toggleClass('active');
     $(this).closest('.select-outline').find('.caret').toggleClass('active');
-  }); //Data Table
+  }); // Table
 
-  $('#tableau').DataTable({
-    "scrollX": true
-  });
+  $('#wowza').DataTable();
   $('.dataTables_length').addClass('bs-select');
 });
 

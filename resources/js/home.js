@@ -11,10 +11,12 @@ $(function() {
         numCons = parseInt($('#cons').val());
         theadCols = $('table thead tr');
         tbodyRows = $('table tbody');
-        numInput = $('<input type="number" class="form-control">');
+        numInput = $('<input type="number" class="form-control text-center">');
         // If numVars is increased
         for(let i=theadCols.children().length; i < numVars; i++){
-            theadCols.append($('<th/>').text('var'+(i+1)));
+            // thead
+            theadCols.append($('<th/>').addClass('text-center').text('var'+(i+1)));
+            // tbody
             tdLast = tbodyRows.children().find('td:last');
             if(tdLast.length == 0){
                 tbodyRows.children().append(numInput.clone());
@@ -29,13 +31,9 @@ $(function() {
             tr = tbodyRows.find('tr:last');
             if(tr.length == 0){
                 tr = $('<tr/>');
-                td = $('<td/>').append($('<input type="number" class="form-control">'));
-                for(let j=0; j < theadCols.children().length; j++){
-                    tr.append(td.clone());
-                }
-            }else{
-                tr = tr.clone();
-            }
+                td = $('<td/>').append(numInput.clone());
+                for(let j=0; j < theadCols.children().length; j++) tr.append(td.clone());
+            }else{ tr = tr.clone(); }
             tbodyRows.append(tr.clone());
         }
         //If numVars is decreased
@@ -44,11 +42,11 @@ $(function() {
             tbodyRows.children().find('td:last').remove();
         }
         //If numCons is decreased
-        for(let i=tbodyRows.children().length-numCons; i>0; i--){
+        for(let i=tbodyRows.children().length; i>numCons; i--){
             tbodyRows.find('tr:last').remove();
         }
     });
-    $('#vars, #cons').val(2).change();
+    $('#vars, #cons').val(11).change();
 
     // Material Select Initialization
     $('.mdb-select').materialSelect();
@@ -57,9 +55,7 @@ $(function() {
         $(this).closest('.select-outline').find('.caret').toggleClass('active');
     });
 
-    //Data Table
-    $('#tableau').DataTable({
-        "scrollX": true
-    });
+    // Table
+    $('#wowza').DataTable();
     $('.dataTables_length').addClass('bs-select');
 });
