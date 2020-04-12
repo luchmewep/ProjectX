@@ -14,3 +14,5 @@
 <script src="{{ asset('js/addons/datatables-select.min.js') }}" defer></script>
 {{-- Own --}}
 <script src="{{ asset('js/custom.js') }}" defer></script>
+{{-- React Scripts --}}
+<script src="{{ asset('js/app.js') }}" defer></script>

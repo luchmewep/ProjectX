@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Resources\Post as PostResource;
+use App\Http\Requests;
+use App\Post;
 
 class PostsController extends Controller
 {
@@ -13,7 +16,9 @@ class PostsController extends Controller
      */
     public function index()
     {
-        //
+        //Get All Posts
+        $posts = Post::paginate(15);
+        return PostResource::collection($posts);
     }
 
     /**
@@ -34,7 +39,12 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->isMethod('put') ? Post::findOrFail($request->id) : new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        if($post->save()){
+            return new PostResource($post);
+        }
     }
 
     /**
@@ -43,9 +53,9 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        return new PostResource($post);
     }
 
     /**
@@ -66,9 +76,12 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+       $post->title = $request->title;
+       $post->body = $request->body;
+       $post->save();
+       return new PostResource($post);
     }
 
     /**
@@ -77,8 +90,10 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        if($post->delete()){
+            return new PostResource($post);
+        }
     }
 }

@@ -61,5 +61,9 @@ Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/twitter/callback', 'SocialController@TwitterCallback');
 Route::get('login/{provider}/callback','SocialController@Callback');
 
+Route::get('react', function(){
+	return view('home1');
+});
+
 //React Experiment
 // Route::post('formSubmit','PostController@formSubmit');
